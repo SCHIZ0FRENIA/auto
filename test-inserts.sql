@@ -18,7 +18,6 @@ BEGIN
 END;
 
 BEGIN
-    add_car('Toyota Corolla', '2020', 20000, 1, 'White', 'Petrol', 132);
     add_car('Honda Civic', '2021', 22000, 1, 'Black', 'Petrol', 158);
     add_car('Ford Focus', '2019', 18000, 1, 'Red', 'Petrol', 160);
     add_car('Chevrolet Malibu', '2020', 24000, 2, 'Blue', 'Petrol', 160);
