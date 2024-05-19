@@ -32,3 +32,14 @@ begin
   when others then 
     dbms_output.put_line('Ошибка: ' || sqlerrm);
 end create_preorder;
+
+create or replace procedure delete_preorder(
+  p_preorder_id number
+) as
+  v_count number;
+begin
+  delete from preorders where id = p_preorder_id;
+  exception
+  when others then 
+    dbms_output.put_line('Ошибка: ' || sqlerrm);
+end delete_preorder;
