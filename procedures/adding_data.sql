@@ -1,7 +1,16 @@
 BEGIN
-    add_store('123 Main St, Cityville', 50);
-    add_store('456 Elm St, Townsville', 75);
-    add_store('789 Oak St, Villagetown', 100);
+    add_store('TEST!1', 300);
+    add_store('TEST!12', 300);
+    add_store('TEST!13', 300);
+    add_store('TEST!14', 300);
+    add_store('TEST!15', 300);
+    add_store('TEST!16', 300);
+    add_store('TEST!17', 300);
+    add_store('TEST!18', 300);
+    add_store('TEST!19', 300);
+    add_store('TEST!10', 300);
+    add_store('TEST!11', 300);
+    add_store('TEST!12', 300);
 END;
 
 BEGIN

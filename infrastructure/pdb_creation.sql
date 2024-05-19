@@ -3,18 +3,17 @@
 CREATE PLUGGABLE DATABASE auto 
   ADMIN USER programmer IDENTIFIED BY 12341234
   STORAGE (MAXSIZE 2G)
-  default tablespace auto_ts
-    DATAFILE 'C:\APP\ORADATA\ORCL\auto\auto01.dbf' SIZE 250M 
+  DEFAULT TABLESPACE auto_ts
+    DATAFILE 'C:\APP\ORADATA\ORCL\autoauto01.dbf' SIZE 250M 
     AUTOEXTEND ON
-    PATH_PREFIX = 'C:\APP\ORADATA\ORCL\auto\'
-    FILE_NAME_CONVERT = ('C:\APP\ORADATA\ORCL\PDBSEED\', 
-                         'C:\APP\ORADATA\ORCL\auto\');
+  FILE_NAME_CONVERT = ('C:\APP\ORADATA\ORCL', 'C:\APP\ORADATA\ORCL\AUTO');
 
 alter pluggable database auto open;
 
--- auto sys
+alter pluggable database auto close immediate;
 
-grant all privileges to programmer;
-alter user programmer quota unlimited on auto_ts;
+select name from v$datafile;
 
-commit;
+alter pluggable database auto unplug into 'C:/APP/ORADATA/ORCL/shit1.xml';
+
+drop pluggable database auto;

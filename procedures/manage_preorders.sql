@@ -43,3 +43,26 @@ begin
   when others then 
     dbms_output.put_line('Ошибка: ' || sqlerrm);
 end delete_preorder;
+
+CREATE OR REPLACE FUNCTION search_preorder (
+    p_car_id IN NUMBER,
+    p_customer_id IN NUMBER
+) RETURN NUMBER AS
+    v_preorder_id NUMBER;
+BEGIN
+    IF p_car_id IS NULL OR p_customer_id IS NULL THEN
+        RETURN NULL;
+    END IF;
+
+    SELECT id
+    INTO v_preorder_id
+    FROM preorders
+    WHERE car_id = p_car_id AND customer_id = p_customer_id;
+
+    RETURN v_preorder_id;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RETURN NULL;
+    WHEN OTHERS THEN
+        RETURN NULL;
+END search_preorder;
