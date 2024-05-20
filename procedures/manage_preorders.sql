@@ -39,6 +39,7 @@ create or replace procedure delete_preorder(
   v_count number;
 begin
   delete from preorders where id = p_preorder_id;
+  dbms_output.put_line('Предзаказ успешно удален.');
   exception
   when others then 
     dbms_output.put_line('Ошибка: ' || sqlerrm);

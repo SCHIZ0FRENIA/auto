@@ -12,3 +12,10 @@ begin
         raise_application_error(-20001, 'Магазин переполнен, попробуйте добавить машину в другой.');
     end if;
 end check_store_capacity;
+
+CREATE OR REPLACE TRIGGER trg_cars_search_text
+BEFORE INSERT OR UPDATE ON cars
+FOR EACH ROW
+BEGIN
+  :NEW.search_text := lower(:NEW.model) || ' ' || lower(:NEW.generation) || ' ' || lower(:NEW.color) || ' ' || lower(:NEW.fuel_type);
+END trg_cars_search_text;

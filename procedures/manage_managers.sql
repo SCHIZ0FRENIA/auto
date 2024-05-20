@@ -63,28 +63,6 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Ошибка: ' || SQLERRM);
 END delete_manager;
 
-CREATE OR REPLACE FUNCTION search_manager (
-    p_manager_id IN NUMBER
-) RETURN NUMBER AS
-    v_manager_id NUMBER;
-BEGIN
-    IF p_manager_id IS NULL THEN
-        RETURN NULL;
-    END IF;
-
-    SELECT id
-    INTO v_manager_id
-    FROM managers
-    WHERE id = p_manager_id;
-
-    RETURN v_manager_id;
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        RETURN NULL;
-    WHEN OTHERS THEN
-        RETURN NULL;
-END search_manager;
-
 CREATE OR REPLACE FUNCTION search_manager_by_name (
     p_name IN VARCHAR2
 ) RETURN NUMBER AS

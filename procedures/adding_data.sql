@@ -26,6 +26,8 @@ BEGIN
     add_customer('Sergey Ivanov', 'sergeyivanov', 'password123', '1234567899');
 END;
 
+select * from customers;
+
 BEGIN
     add_car('Honda Civic', '2021', 22000, 1, 'Black', 'Petrol', 158);
     add_car('Ford Focus', '2019', 18000, 1, 'Red', 'Petrol', 160);

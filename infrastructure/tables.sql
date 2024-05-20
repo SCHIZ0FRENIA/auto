@@ -19,6 +19,8 @@ CREATE TABLE managers (
     CONSTRAINT fk_managers_store_id FOREIGN KEY (store_id) REFERENCES stores(id)
 );
 
+CREATE INDEX idx_managers_name ON managers(name);
+
 CREATE TABLE cars (
     id NUMBER generated always as identity PRIMARY KEY,
     model VARCHAR2(100) NOT NULL,
@@ -30,10 +32,11 @@ CREATE TABLE cars (
     horse_powers NUMBER not null,
     CONSTRAINT fk_cars_store_id FOREIGN KEY (store_id) REFERENCES stores(id)
 );
+
 ALTER TABLE cars ADD (search_text CLOB);
 
 UPDATE cars
-SET search_text = model || ' ' || generation || ' ' || color || ' ' || fuel_type;
+SET search_text = lower(model) || ' ' || lower(generation) || ' ' || lower(color) || ' ' || lower(fuel_type);
 
 CREATE TABLE preorders (
     id NUMBER generated always as identity PRIMARY KEY,

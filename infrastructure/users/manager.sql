@@ -2,6 +2,7 @@ create role rl_manager;
 
 grant create session to rl_manager;
 grant execute on programmer.delete_car to rl_manager;
+grant execute on programmer.add_car to rl_manager;
 grant execute on programmer.delete_customer to rl_manager;
 grant execute on programmer.delete_preorder to rl_manager;
 grant execute on programmer.force_delete_car to rl_manager;
