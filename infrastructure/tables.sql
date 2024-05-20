@@ -30,6 +30,10 @@ CREATE TABLE cars (
     horse_powers NUMBER not null,
     CONSTRAINT fk_cars_store_id FOREIGN KEY (store_id) REFERENCES stores(id)
 );
+ALTER TABLE cars ADD (search_text CLOB);
+
+UPDATE cars
+SET search_text = model || ' ' || generation || ' ' || color || ' ' || fuel_type;
 
 CREATE TABLE preorders (
     id NUMBER generated always as identity PRIMARY KEY,
@@ -40,9 +44,14 @@ CREATE TABLE preorders (
     CONSTRAINT fk_preorders_customer_id FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
-
 drop table preorders;
 drop table cars;
 drop table managers;
 drop table stores;
 drop table customers;
+
+truncate table preorders;
+truncate table cars;
+truncate table managers;
+truncate table stores;
+truncate table customers;
